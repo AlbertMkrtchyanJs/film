@@ -4,7 +4,7 @@ import { getMovieThunk } from '../../store/slices/movieSlice'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { getGenresMoviesThunk } from '../../store/slices/genresSlice';
-import HomeSlider from '../../components/sliders/HomeSlider/HomeSlider';
+import Slider from '../../components/sliders/Slider/Slider';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -55,7 +55,7 @@ const Home = () => {
                 modules={[Navigation]}
             >
                 {genreMovies.map((el) => {
-                    return <SwiperSlide><HomeSlider el={el} /></SwiperSlide>
+                    return <SwiperSlide><Slider el={el} /></SwiperSlide>
                 })}
             </Swiper>
         </div>
