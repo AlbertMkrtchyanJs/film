@@ -5,12 +5,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { getGenresMoviesThunk } from "../../store/slices/genresSlice";
 import Slider from "../../components/sliders/Slider/Slider";
+import MovieCard from "../../components/MovieCard/movieCard";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
 import style from "./Home.module.css";
-import MovieCard from "../../components/MovieCard/movieCard";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const Home = () => {
         genreId: 10752,
       })
     );
-  }, [language,pageCount]);
+  }, [language, pageCount]);
 
   return (
     <div className={style.home}>
@@ -74,8 +74,8 @@ const Home = () => {
         })}
       </Swiper>
       <div className={style.main}>
-        {movies.map((movie) => {
-          return <MovieCard key={movie.id} movie={movie} />;
+        {movies.map((el) => {
+          return <MovieCard key={el.id} el={el} />;
         })}
       </div>
       <button className={style.btn} onClick={change}>
