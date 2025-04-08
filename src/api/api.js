@@ -10,11 +10,14 @@ const API = {
     getGenres(language) {
         return instance.get(`/genre/movie/list?api_key=${apiKey}&language=${language}`)
     },
-    getMovies(language,pageCount) {
+    getMovies(language,pageCount = 1) {
         return instance.get(`discover/movie?api_key=${apiKey}&language=${language}&page=${pageCount}`)
     },
     getGenersMovies(language,genreId) {
         return instance.get(`/discover/movie?api_key=${apiKey}&language=${language}&with_genres=${genreId}&page=${1}`)
+    },
+    getOneMovie(id,language){
+        return instance.get(`/movie/${id}?api_key=${apiKey}&language=${language}`)
     }
 }
 

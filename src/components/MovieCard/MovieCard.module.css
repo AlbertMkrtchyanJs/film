@@ -1,0 +1,37 @@
+.section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid brown;
+    border-radius: 10px;
+    background-color: rgb(126, 9, 9);
+}
+
+.sec{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dec{
+    color: white;
+    max-width: 250px;
+    font-style: italic;
+    font-size: 20px;
+    overflow-y: auto;
+    max-height: 240px;
+}
+
+.rat{
+    color: white;
+    font-style: italic;
+    font-size: 22px;
+}
+
+.title{
+    color: white;
+    font-style: italic;
+    font-size: 30px;
+    max-width: 400px;
+}
