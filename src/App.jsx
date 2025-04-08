@@ -4,6 +4,7 @@ import Home from './pages/Home/Home'
 import MoviePage from './pages/MoviePage/MoviePage'
 
 import './App.css'
+import OneMovie from './pages/OneMovie/OneMovie'
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
     <div className='App'>
         <Routes >
           <Route path='/' element={<Home />}/> 
-          <Route path='/genresmovie/:id' element={<MoviePage />}/> 
+          <Route path='/genresmovie/:id' element={<MoviePage />}/>
+          <Route path='/movies/movie/:id' element={<OneMovie />}/> 
         </Routes>
     </div>
     </>

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import style from "./MoviePage.module.css";
 import { getGenresMoviesThunk } from "../../store/slices/genresSlice";
+import { imgUrl } from "../../constant/constant";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -27,7 +28,7 @@ const MoviePage = () => {
           return (
             <div key={el.id} className="ganre">
               <img
-                src={`https://image.tmdb.org/t/p/w400/${el.backdrop_path}`}
+                src={imgUrl + '/w400' + el.backdrop_path}
               />
               <h2 className={style.h3}>{el.title}</h2>
             </div>

@@ -1,12 +1,18 @@
 import { createSlice ,createAsyncThunk} from "@reduxjs/toolkit";
-import FilmAPI from "../../api/api";
+import API from "../../api/api";
 
+export const getOneMovie = createAsyncThunk(
+    'getOneMovie',
+    async ({id,language}) => {
+        const res = await API.getOneMovie(id,language)
+        return res.data
+    }
+)
 
 export const getMovieThunk = createAsyncThunk(
     "getMovieThunk",
     async ({language,pageCount}) => {
-        const res = await FilmAPI.getMovies(language,pageCount)
-        
+        const res = await API.getMovies(language,pageCount)
         return res.data
     }
 )
@@ -16,7 +22,7 @@ const movieSlice = createSlice({
     initialState : {
         movies : [],
         pageCount : 1,
-        movie : []
+        movie : {}
     },
     reducers: {
         changePage(state){
@@ -26,6 +32,9 @@ const movieSlice = createSlice({
     extraReducers : (builder) => {
         builder.addCase(getMovieThunk.fulfilled , (state,action) => {
             state.movies = action.payload.results  
+        })
+        builder.addCase(getOneMovie.fulfilled , (state,action) => {
+            state.film = action.payload
         })
     }
 })
